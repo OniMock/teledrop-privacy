@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>TeleDrop — Privacy Policy</h1>
-<p><strong>Last updated:</strong> 2026-09-20</p>
+  <p><strong>Last updated:</strong> 2026-09-22</p>
 <p>TeleDrop is a Chrome extension that helps the user find and download media from the currently open Telegram Web page. It runs only on <code>https://web.telegram.org/</code>. It is not affiliated with Telegram.</p>
 <p>This policy describes how TeleDrop handles user data, including website content processed only on the device. Chrome Web Store rules require this disclosure even when nothing is sent to the developer.</p>
 
@@ -34,7 +34,7 @@
 
 <h2>Requests to Telegram, not to the developer</h2>
 <p>Traffic that leaves the device for this product goes to Telegram (or another site the user opens), over HTTPS in the existing browser session. It is not sent to the TeleDrop developer.</p>
-<p>When the user starts a download (including Download, Download RAR, or a TeleDrop download button), the extension may request the original file from Telegram using Telegram Web’s download manager or a media URL already on the page.</p>
+<p>When the user starts a download (including Download, Download RAR, or a TeleDrop download button), the extension may request the original file from Telegram using the download manager of the Telegram Web client that is open (Web K or Web A) or a media URL already on the page.</p>
 <p>While scanning, the extension may also ask Telegram Web for a small preview thumbnail or filename/size from the in-page message store, so the scanner can list items that are on screen but not fully loaded. That uses the same Telegram session. It does not upload chat content to the developer.</p>
 <p>The extension may read the browser UI language on the device to pick a translation when language is set to Automatic. That value stays on the device.</p>
 
@@ -59,7 +59,7 @@
 </ul>
 
 <h2>MAIN-world script</h2>
-<p>A content script runs in the page’s MAIN JavaScript world so TeleDrop can use Telegram Web objects already in that page (<code>mtprotoMessagePort</code> and <code>appDownloadManager</code>). That is used to:</p>
+<p>A content script runs in the page’s MAIN JavaScript world so TeleDrop can use Telegram Web objects already in that page. On Web K that is <code>mtprotoMessagePort</code> and <code>appDownloadManager</code>. On Web A that is the client’s in-page state (<code>getGlobal</code> / <code>getActions().downloadMedia</code>) and media download URLs. That is used to:</p>
 <ul>
   <li>Read message metadata and preview thumbs for the scanner list</li>
   <li>Download the original file after the user clicks Download, Download RAR, or a TeleDrop download button (chat media, Stories viewer, or media viewer)</li>
